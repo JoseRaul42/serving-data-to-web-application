@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+  import type { Load } from '@sveltejs/kit';
+
+  export const load: Load = async ({ fetch }) => {
+      const response = await fetch('/api/data');
+      const result = await response.json();
+
+      if (result.error) {
+          return { props: { bills: [] } };
+      }
+
+      return { props: { bills: result.data } };
+  };
+</script>
+
 <script lang="ts">
     import Activity from "lucide-svelte/icons/activity";
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
@@ -17,8 +32,9 @@
     import { Input } from "$lib/components/ui/input/index.js";
     import * as Sheet from "$lib/components/ui/sheet/index.js";
     import * as Table from "$lib/components/ui/table/index.js";
-</script>
 
+    export let bills: { title: string }[] = [];
+</script>
 
 <div class="flex min-h-screen w-full flex-col">
     <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
@@ -87,7 +103,7 @@
                 <Table.Row>
                   <Table.Cell>
                     <div class="font-medium">H.R.1234</div>
-                    <div class="text-muted-foreground hidden text-sm md:inline">Healthcare Reform Act</div>
+                    <div class="text-muted-foreground hidden text-sm md:inline">#each</div>
                   </Table.Cell>
                   <Table.Cell class="xl:table-column hidden">Bill</Table.Cell>
                   <Table.Cell class="xl:table-column hidden">
@@ -123,3 +139,9 @@
       </div>
     </main>
 </div>
+
+{#each bills as bill}
+  <h1>{bill.title}</h1>
+{/each}
+
+<h1>yerrrr</h1>

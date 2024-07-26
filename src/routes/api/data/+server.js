@@ -9,44 +9,48 @@ dotenv.config({ path: './.env' });
 const supabaseUrl = process.env.SUPABASE_URL1;
 const supabaseKey = process.env.SUPABASE_KEY1;
 
-console.log('Supabase URL:', supabaseUrl); // Debugging log
-console.log('Supabase Key:', supabaseKey); // Debugging log
-
 if (!supabaseUrl || !supabaseKey) {
   throw new Error("Supabase URL and Key must be provided");
 }
 
+console.log('Supabase URL:', supabaseUrl);
+console.log('Supabase Key:', supabaseKey);
+
 // Create a single Supabase client for interacting with your database
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Load function to fetch data
-export async function load() {
-  try {
-    console.log('Fetching data...');
+console.log('Supabase client created');
 
+// GET function to fetch data
+export async function GET() {
+  console.log('GET function called');
+  try {
     const { data, error } = await supabase
       .from('TrumpsDocuments')
       .select('title')
       .limit(10);
 
+    console.log('Attempting Supabase data pull');
+    
     if (error) {
       console.error('Error fetching data:', error);
-      return { error: true, data: null };
+      return {
+        status: 500,
+        body: { error: true, data: null }
+      };
     }
 
-    // No logging of data here to avoid duplication
-    return { error: false, data: data };
+    // Log the fetched data
+    console.log('Fetched data:', data);
+    return {
+      status: 200,
+      body: { error: false, data }
+    };
   } catch (err) {
     console.error('Fetch error:', err);
-    return { error: true, data: null };
+    return {
+      status: 500,
+      body: { error: true, data: null }
+    };
   }
 }
-
-// Example usage of the load function
-load().then(result => {
-  if (result.error) {
-    console.error('Failed to load data');
-  } else {
-    console.log('Loaded data:', result.data);
-  }
-});
