@@ -26,7 +26,7 @@ export async function load() {
 
     const { data, error } = await supabase
       .from('TrumpsDocuments')
-      .select('*')
+      .select('title')
       .limit(10);
 
     if (error) {
