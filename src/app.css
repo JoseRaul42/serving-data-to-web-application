@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 65% 10%; /* Dark blue background */
+    --foreground: 0 0% 100%; /* White text for high contrast */
+    --card: 220 25% 18%; /* Slightly lighter dark blue card background */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+    --popover: 220 25% 18%; /* Slightly lighter dark blue popover background */
+    --popover-foreground: 0 0% 100%; /* White text on popovers */
+    --primary: 200 100% 50%; /* Bright blue primary color for better distinction */
+    --primary-foreground: 0 0% 100%; /* White text on primary color */
+    --secondary: 240 20% 25%; /* Dark gray-blue secondary background */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary color */
+    --muted: 240 20% 25%; /* Dark gray-blue muted background */
+    --muted-foreground: 0 0% 100%; /* White text on muted background */
+    --accent: 50 100% 50%; /* Bright yellow accent color for contrast */
+    --accent-foreground: 0 0% 0%; /* Black text on accent color */
+    --destructive: 0 85.7% 50%; /* Bright red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive color */
+    --border: 0 0% 30%; /* Gray border color */
+    --input: 0 0% 20%; /* Darker gray input background */
+    --ring: 50 100% 50%; /* Bright yellow ring color for contrast */
+    --radius: 1rem; /* Border radius */
+  }
+  .dark {
+    --background: 220 30% 15%; /* Dark blue background */
+    --foreground: 0 0% 100%; /* White text */
+    --card: 220 25% 18%; /* Slightly lighter dark blue card background */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+    --popover: 220 25% 18%; /* Slightly lighter dark blue popover background */
+    --popover-foreground: 0 0% 100%; /* White text on popovers */
+    --primary: 200 100% 50%; /* Bright blue primary color */
+    --primary-foreground: 0 0% 100%; /* White text on primary color */
+    --secondary: 240 20% 25%; /* Dark gray-blue secondary background */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary color */
+    --muted: 240 20% 25%; /* Dark gray-blue muted background */
+    --muted-foreground: 0 0% 100%; /* White text on muted background */
+    --accent: 50 100% 50%; /* Bright yellow accent color */
+    --accent-foreground: 0 0% 0%; /* Black text on accent color */
+    --destructive: 0 85.7% 50%; /* Bright red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive color */
+    --border: 0 0% 30%; /* Gray border color */
+    --input: 0 0% 20%; /* Darker gray input background */
+    --ring: 50 100% 50%; /* Bright yellow ring color */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
