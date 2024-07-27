@@ -31,26 +31,26 @@ export async function GET() {
       .limit(10);
 
     console.log('Attempting Supabase data pull');
-    
+
     if (error) {
-      console.error('Error fetching data:', error);
-      return {
-        status: 500,
-        body: { error: true, data: null }
-      };
+      console.error('Error fetching data:', error.message, error.details);
+      return new Response(
+        JSON.stringify({ message: 'Error fetching data from Supabase', details: error.message }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
     // Log the fetched data
     console.log('Fetched data:', data);
-    return {
-      status: 200,
-      body: { error: false, data }
-    };
+    return new Response(
+      JSON.stringify(data),
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
+    );
   } catch (err) {
-    console.error('Fetch error:', err);
-    return {
-      status: 500,
-      body: { error: true, data: null }
-    };
+    console.error('Fetch error:', err.message, err.stack);
+    return new Response(
+      JSON.stringify({ message: 'Internal Error', details: err.message }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 }
