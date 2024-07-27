@@ -27,20 +27,20 @@
       <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Card.Title class="text-sm font-medium">Bills Kamala Harris has Sponsored</Card.Title>
+            <Card.Title class="text-sm font-medium">Bills Vetoed by Donald Trump</Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">54</div>
+            <div class="text-2xl font-bold">10</div>
             <p class="text-muted-foreground text-xs">Details on supported bills</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Card.Title class="text-sm font-medium">Bills Kamala Harris has co-sponsored</Card.Title>
+            <Card.Title class="text-sm font-medium">Presidential Documents Donald Trump Has Signed</Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">388</div>
-            <p class="text-muted-foreground text-xs">Details on opposed bills</p>
+            <div class="text-2xl font-bold">545</div>
+            <p class="text-muted-foreground text-xs">Excluding Proclamations as they are typically symbolic in nature</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
@@ -62,26 +62,23 @@
           </Card.Content>
         </Card.Root>
       </div>
-      <div class="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <Card.Root class="xl:col-span-2">
+      <div class="w-full">
+        <Card.Root class="w-full">
           <Card.Header class="flex flex-row items-center">
             <div class="grid gap-2">
-              <Card.Title>Presidential Documents</Card.Title>
+              <Card.Title>Presidential Documents Donald Trump Has signed</Card.Title>
               <Card.Description>Details on Presidential documents</Card.Description>
             </div>
-            <Button href="/Bills-Supported" size="sm" class="ml-auto gap-1">
+            <!-- <Button href="/Bills-Supported" size="sm" class="ml-auto gap-1">
               View All
               <ArrowUpRight class="h-4 w-4" />
-            </Button>
+            </Button> -->
           </Card.Header>
           <Card.Content>
-            <Table.Root>
+            <Table.Root class="w-full">
               <Table.Header>
                 <Table.Row>
                   <Table.Head>Details</Table.Head>
-                  <Table.Head class="xl:table-column hidden">Type</Table.Head>
-                  <Table.Head class="xl:table-column hidden">Status</Table.Head>
-                  <Table.Head class="xl:table-column hidden">Date</Table.Head>
                   <Table.Head class="text-right">Action</Table.Head>
                 </Table.Row>
               </Table.Header>
@@ -113,7 +110,7 @@
                 {/if}
               </Table.Body>
             </Table.Root>
-          </Card.Content>
+          <!-- </Card.Content>
         </Card.Root>
         <Card.Root>
           <Card.Header>

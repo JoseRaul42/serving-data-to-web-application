@@ -23,8 +23,8 @@
         <span class="sr-only">Acme Inc</span>
       </a>
       <a href="/" class="text-foreground hover:text-foreground transition-colors">Dashboard</a>
-      <a href="/Bills-Supported" class="text-muted-foreground hover:text-foreground transition-colors">Bills Supported</a>
-      <a href="/Bills-Opposed" class="text-muted-foreground hover:text-foreground transition-colors">Bills Opposed</a>
+      <!-- <a href="/Bills-Supported" class="text-muted-foreground hover:text-foreground transition-colors">Bills Supported</a>
+      <a href="/Bills-Opposed" class="text-muted-foreground hover:text-foreground transition-colors">Bills Opposed</a> -->
       <a href="/Analytics" class="text-muted-foreground hover:text-foreground transition-colors">Analytics</a>
     </nav>
     <Sheet.Root>
@@ -49,11 +49,11 @@
     </Sheet.Root>
     <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
       <form class="ml-auto flex-1 sm:flex-initial">
-        <div class="relative">
+        <!-- <div class="relative">
           <Search class="text-muted-foreground absolute left-2.5 top-2.5 h-4 w-4" />
           <Input type="search" placeholder="Search..." class="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]" />
-        </div>
-      </form>
+        </div> -->
+      <!-- </form>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild let:builder>
           <Button builders={[builder]} variant="secondary" size="icon" class="rounded-full">
@@ -70,6 +70,6 @@
           <DropdownMenu.Item>Logout</DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
-    </div>
+    </div> -->
   </header>
   
