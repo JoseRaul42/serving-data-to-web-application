@@ -13,7 +13,12 @@
 		All data sourced from
 		<a href="https://www.congress.gov" class="text-primary hover:underline" target="_blank">
 		  Congress.gov
-		</a> API
+		</a>
+		& 
+		<a href="https://www.federalregister.gov" class="text-primary hover:underline" target="_blank">
+			Federalregister.gov
+		  </a>
+		
 	  </p>
 	</footer>
   </div>

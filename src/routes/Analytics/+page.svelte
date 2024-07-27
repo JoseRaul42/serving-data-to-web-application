@@ -6,7 +6,7 @@
 <div>
   {#if data.posts && data.posts.length > 0}
     {#each data.posts as post}
-      <h1>{post.title}</h1>
+      <h1>{post.title},{post.document_number}</h1>
     {/each}
   {:else}
     <p>No posts available</p>

@@ -1,18 +1,3 @@
-<script lang="ts" context="module">
-  import type { Load } from '@sveltejs/kit';
-
-  export const load: Load = async ({ fetch }) => {
-      const response = await fetch('/api/data');
-      const result = await response.json();
-
-      if (result.error) {
-          return { props: { bills: [] } };
-      }
-
-      return { props: { bills: result.data } };
-  };
-</script>
-
 <script lang="ts">
     import Activity from "lucide-svelte/icons/activity";
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
@@ -32,9 +17,10 @@
     import { Input } from "$lib/components/ui/input/index.js";
     import * as Sheet from "$lib/components/ui/sheet/index.js";
     import * as Table from "$lib/components/ui/table/index.js";
-
-    export let bills: { title: string }[] = [];
+    export let data = { posts: [] };  // Provide a default value
+    console.log('Received data:', data);  // Log the received data
 </script>
+
 
 <div class="flex min-h-screen w-full flex-col">
     <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
@@ -80,8 +66,8 @@
         <Card.Root class="xl:col-span-2">
           <Card.Header class="flex flex-row items-center">
             <div class="grid gap-2">
-              <Card.Title>Recent Bills Supported</Card.Title>
-              <Card.Description>Details on recent supported bills</Card.Description>
+              <Card.Title>Presidential Documents</Card.Title>
+              <Card.Description>Details on Presidential documents</Card.Description>
             </div>
             <Button href="/Bills-Supported" size="sm" class="ml-auto gap-1">
               View All
@@ -92,7 +78,7 @@
             <Table.Root>
               <Table.Header>
                 <Table.Row>
-                  <Table.Head>Bill</Table.Head>
+                  <Table.Head>Titles</Table.Head>
                   <Table.Head class="xl:table-column hidden">Type</Table.Head>
                   <Table.Head class="xl:table-column hidden">Status</Table.Head>
                   <Table.Head class="xl:table-column hidden">Date</Table.Head>
@@ -100,26 +86,38 @@
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                <Table.Row>
-                  <Table.Cell>
-                    <div class="font-medium">H.R.1234</div>
-                    <div class="text-muted-foreground hidden text-sm md:inline">#each</div>
-                  </Table.Cell>
-                  <Table.Cell class="xl:table-column hidden">Bill</Table.Cell>
-                  <Table.Cell class="xl:table-column hidden">
-                    <Badge class="text-xs" variant="outline">Passed</Badge>
-                  </Table.Cell>
-                  <Table.Cell class="md:table-cell xl:table-column hidden lg:hidden">2021-07-15</Table.Cell>
-                  <Table.Cell class="text-right">Supported</Table.Cell>
-                </Table.Row>
-                <!-- Add more rows as needed -->
+                {#if data.posts && data.posts.length > 0}
+                  {#each data.posts as post (post.id)}
+                    <Table.Row>
+                      <Table.Cell>
+                        <div class="font-normal">{post.title}</div>
+                        <div class="text-secondary-foreground hidden text-sm md:inline font-semibold">{post.publication_date}</div>
+                        <div class="text-secondary-foreground hidden text-sm md:inline font-semibold ">
+                          <a href="{post.pdf_url}" target="_blank" class="text-ring hover:underline">
+                            {post.pdf_url}
+                          </a>
+                        </div>
+                      </Table.Cell>
+                      <Table.Cell class="xl:table-column hidden">Bill</Table.Cell>
+                      <Table.Cell class="xl:table-column hidden">
+                        <Badge class="text-xs" variant="outline">Passed</Badge>
+                      </Table.Cell>
+                      <Table.Cell class="md:table-cell xl:table-column hidden lg:hidden">2021-07-15</Table.Cell>
+                      <Table.Cell class="text-right">Supported</Table.Cell>
+                    </Table.Row>
+                  {/each}
+                {:else}
+                  <Table.Row>
+        
+                  </Table.Row>
+                {/if}
               </Table.Body>
             </Table.Root>
           </Card.Content>
         </Card.Root>
         <Card.Root>
           <Card.Header>
-            <Card.Title>Recent Bills Opposed</Card.Title>
+            <Card.Title>Bills Vetoed</Card.Title>
           </Card.Header>
           <Card.Content class="grid gap-8">
             <div class="flex items-center gap-4">
@@ -139,9 +137,3 @@
       </div>
     </main>
 </div>
-
-{#each bills as bill}
-  <h1>{bill.title}</h1>
-{/each}
-
-<h1>yerrrr</h1>

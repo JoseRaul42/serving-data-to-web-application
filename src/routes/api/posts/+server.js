@@ -27,8 +27,8 @@ export async function GET() {
   try {
     const { data, error } = await supabase
       .from('TrumpsDocuments')
-      .select('title')
-      .limit(10);
+      .select('title ,document_number, type, agency_names, abstract, citation, pdf_url, publication_date')
+      .limit(50);
 
     console.log('Attempting Supabase data pull');
 
