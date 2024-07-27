@@ -27,19 +27,19 @@
       <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Card.Title class="text-sm font-medium">Bills Kamala Harris has Supported</Card.Title>
+            <Card.Title class="text-sm font-medium">Bills Kamala Harris has Sponsored</Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">43242</div>
+            <div class="text-2xl font-bold">54</div>
             <p class="text-muted-foreground text-xs">Details on supported bills</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Card.Title class="text-sm font-medium">Bills Kamala Harris has Voted Against</Card.Title>
+            <Card.Title class="text-sm font-medium">Bills Kamala Harris has co-sponsored</Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">4232432</div>
+            <div class="text-2xl font-bold">388</div>
             <p class="text-muted-foreground text-xs">Details on opposed bills</p>
           </Card.Content>
         </Card.Root>
@@ -48,17 +48,17 @@
             <Card.Title class="text-sm font-medium">Bills Donald Trump has Signed into Law</Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">342234</div>
+            <div class="text-2xl font-bold">243</div>
             <p class="text-muted-foreground text-xs">Details on signed bills</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Card.Title class="text-sm font-medium">Bills Donald Trump has Vetoed</Card.Title>
+            <Card.Title class="text-sm font-medium">Executive Orders Donald Trump has Signed</Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">432432</div>
-            <p class="text-muted-foreground text-xs">Details on vetoed bills</p>
+            <div class="text-2xl font-bold">220</div>
+            <p class="text-muted-foreground text-xs">Details on Executive Orders</p>
           </Card.Content>
         </Card.Root>
       </div>
@@ -78,7 +78,7 @@
             <Table.Root>
               <Table.Header>
                 <Table.Row>
-                  <Table.Head>Titles</Table.Head>
+                  <Table.Head>Details</Table.Head>
                   <Table.Head class="xl:table-column hidden">Type</Table.Head>
                   <Table.Head class="xl:table-column hidden">Status</Table.Head>
                   <Table.Head class="xl:table-column hidden">Date</Table.Head>
