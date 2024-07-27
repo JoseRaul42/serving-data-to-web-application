@@ -13,8 +13,8 @@ if (!supabaseUrl || !supabaseKey) {
   throw new Error("Supabase URL and Key must be provided");
 }
 
-console.log('Supabase URL:', supabaseUrl);
-console.log('Supabase Key:', supabaseKey);
+// console.log('Supabase URL:', supabaseUrl);
+// console.log('Supabase Key:', supabaseKey);
 
 // Create a single Supabase client for interacting with your database
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -26,10 +26,7 @@ export async function GET() {
   console.log('GET function called');
   try {
     const { data, error } = await supabase
-      .from('TrumpsDocuments')
-      .select('title ,document_number, type, agency_names, abstract, citation, pdf_url, publication_date')
-
-      ;
+      .rpc('get_ordered_documents');
 
     console.log('Attempting Supabase data pull');
 
@@ -41,8 +38,8 @@ export async function GET() {
       );
     }
 
-    // Log the fetched data
-    console.log('Fetched data:', data);
+    
+   // console.log('Fetched data:', data); // Log the fetched data for testing purposes
     return new Response(
       JSON.stringify(data),
       { status: 200, headers: { 'Content-Type': 'application/json' } }

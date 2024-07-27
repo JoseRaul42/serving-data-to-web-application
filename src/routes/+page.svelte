@@ -8,7 +8,7 @@
     import Package2 from "lucide-svelte/icons/package-2";
     import Search from "lucide-svelte/icons/search";
     import Users from "lucide-svelte/icons/users";
-
+    import * as Popover from "$lib/components/ui/popover";
     import * as Avatar from "$lib/components/ui/avatar/index.js";
     import { Badge } from "$lib/components/ui/badge/index.js";
     import { Button } from "$lib/components/ui/button/index.js";
@@ -31,16 +31,16 @@
           </Card.Header>
           <Card.Content>
             <div class="text-2xl font-bold">10</div>
-            <p class="text-muted-foreground text-xs">Details on supported bills</p>
+            <p class="text-muted-foreground text-xs">While Trump did not veto a specific healthcare bill, his veto of the National Defense Authorization Act for Fiscal Year 2021 included provisions that impacted healthcare for military personnel and veterans, such as funding for military health programs and facilities.</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Card.Title class="text-sm font-medium">Presidential Documents Donald Trump Has Signed</Card.Title>
+            <Card.Title class="text-sm font-medium">Presidential Documents signed by Donald Trump </Card.Title>
           </Card.Header>
           <Card.Content>
-            <div class="text-2xl font-bold">545</div>
-            <p class="text-muted-foreground text-xs">Excluding Proclamations as they are typically symbolic in nature</p>
+            <div class="text-2xl font-bold">894</div>
+            <p class="text-muted-foreground text-xs">Trump signed a presidential memorandum directing the Health and Human Services (HHS) to expedite the development of a plan to reduce prescription drug prices. This action was part of his administration’s efforts to make medications more affordable for Americans.</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
@@ -49,7 +49,7 @@
           </Card.Header>
           <Card.Content>
             <div class="text-2xl font-bold">243</div>
-            <p class="text-muted-foreground text-xs">Details on signed bills</p>
+            <p class="text-muted-foreground text-xs">The SUPPORT for Patients and Communities Act, signed into law on October 24, 2018, was a comprehensive bill aimed at addressing the opioid crisis. It included measures to improve access to addiction treatment, expand telemedicine for substance use disorder treatment, and enhance efforts to prevent opioid misuse.</p>
           </Card.Content>
         </Card.Root>
         <Card.Root>
@@ -58,7 +58,7 @@
           </Card.Header>
           <Card.Content>
             <div class="text-2xl font-bold">220</div>
-            <p class="text-muted-foreground text-xs">Details on Executive Orders</p>
+            <p class="text-muted-foreground text-xs">On June 24, 2019, Trump signed an executive order to improve price transparency in healthcare. The order directed federal agencies to require hospitals to publicly disclose their negotiated rates with insurance companies, as well as the prices of various medical services and procedures, to help consumers make more informed decisions about their healthcare.</p>
           </Card.Content>
         </Card.Root>
       </div>
@@ -67,10 +67,10 @@
           <Card.Header class="flex flex-row items-center">
             <div class="grid gap-2">
               <Card.Title>Presidential Documents Donald Trump Has signed</Card.Title>
-              <Card.Description>Details on Presidential documents</Card.Description>
+              <Card.Description>(Excluding Proclamations as they are typically symbolic in nature)</Card.Description>
             </div>
-            <!-- <Button href="/Bills-Supported" size="sm" class="ml-auto gap-1">
-              View All
+            <!-- <Button href="/" size="sm" class="ml-auto gap-1">
+              Ask Questions About Specific Documents with AI
               <ArrowUpRight class="h-4 w-4" />
             </Button> -->
           </Card.Header>
@@ -79,7 +79,7 @@
               <Table.Header>
                 <Table.Row>
                   <Table.Head>Details</Table.Head>
-                  <Table.Head class="text-right">Action</Table.Head>
+                  <Table.Head class="text-right">Document Number</Table.Head>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
@@ -95,12 +95,10 @@
                           </a>
                         </div>
                       </Table.Cell>
-                      <Table.Cell class="xl:table-column hidden">Bill</Table.Cell>
                       <Table.Cell class="xl:table-column hidden">
                         <Badge class="text-xs" variant="outline">Passed</Badge>
                       </Table.Cell>
-                      <Table.Cell class="md:table-cell xl:table-column hidden lg:hidden">2021-07-15</Table.Cell>
-                      <Table.Cell class="text-right">Supported</Table.Cell>
+                      <Table.Cell class="text-right">{post.document_number}</Table.Cell>
                     </Table.Row>
                   {/each}
                 {:else}
