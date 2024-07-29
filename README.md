@@ -1,5 +1,5 @@
 # serving-data-to-web-application Project
-[https://serving-data-to-web-application/](https://political-fact-checker.vercel.app/)
+https://serving-data-to-web-application.vercel.app/
 
 ## Overview
 
