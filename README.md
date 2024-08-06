@@ -82,7 +82,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [TypeScript](https://www.typescriptlang.org/)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-## Contact
-
-For any questions or inquiries, please contact me raulvalois04@gmail.com.
-
